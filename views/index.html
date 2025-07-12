@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXE - Premium E-commerce Experience</title>
+    <meta name="description" content="Discover luxury products with an award-winning shopping experience">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="logo-animation">
+                <h1>LUXE</h1>
+                <div class="loading-bar">
+                    <div class="loading-progress"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-info">
+                    <span><i class="fas fa-shipping-fast"></i> Free shipping worldwide</span>
+                    <span><i class="fas fa-headset"></i> 24/7 Customer Support</span>
+                </div>
+                <div class="header-social">
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <h1 class="logo">LUXE</h1>
+                </div>
+
+                <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">Categories <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4>Fashion</h4>
+                                    <a href="#">Men's Clothing</a>
+                                    <a href="#">Women's Clothing</a>
+                                    <a href="#">Accessories</a>
+                                    <a href="#">Shoes</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4>Electronics</h4>
+                                    <a href="#">Smartphones</a>
+                                    <a href="#">Laptops</a>
+                                    <a href="#">Audio</a>
+                                    <a href="#">Gaming</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4>Lifestyle</h4>
+                                    <a href="#">Home & Garden</a>
+                                    <a href="#">Beauty</a>
+                                    <a href="#">Sports</a>
+                                    <a href="#">Books</a>
+                                </div>
+                                <div class="dropdown-featured">
+                                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=300&h=200&fit=crop&q=80" alt="Featured">
+                                    <h5>New Collection</h5>
+                                    <p>Discover our latest arrivals</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="#products" class="nav-link">Products</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <button class="search-toggle" id="searchToggle">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="wishlist-btn" id="wishlistBtn">
+                        <i class="fas fa-heart"></i>
+                        <span class="count" id="wishlistCount">0</span>
+                    </button>
+                    <button class="cart-toggle" id="cartToggle">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="count" id="cartCount">0</span>
+                    </button>
+                    <button class="menu-toggle" id="menuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Full-Screen Search -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-container">
+            <button class="search-close" id="searchClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="search-content">
+                <h2>What are you looking for?</h2>
+                <div class="search-box">
+                    <input type="text" placeholder="Search products..." id="searchInput">
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="search-suggestions" id="searchSuggestions"></div>
+                <div class="popular-searches">
+                    <h3>Popular Searches</h3>
+                    <div class="search-tags">
+                        <span class="search-tag">Wireless Headphones</span>
+                        <span class="search-tag">Designer Bags</span>
+                        <span class="search-tag">Smart Watches</span>
+                        <span class="search-tag">Sneakers</span>
+                        <span class="search-tag">Skincare</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-slider">
+            <div class="hero-slide active" data-bg="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&h=1080&fit=crop&q=80">
+                <div class="hero-content">
+                    <div class="container">
+                        <div class="hero-text">
+                            <span class="hero-badge">New Collection</span>
+                            <h1 class="hero-title">Luxury Fashion<br>Redefined</h1>
+                            <p class="hero-description">Discover our curated collection of premium fashion and lifestyle products</p>
+                            <div class="hero-actions">
+                                <button class="btn btn-primary">Explore Collection</button>
+                                <button class="btn btn-outline">Watch Video</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-slide" data-bg="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1920&h=1080&fit=crop&q=80">
+                <div class="hero-content">
+                    <div class="container">
+                        <div class="hero-text">
+                            <span class="hero-badge">Tech Innovation</span>
+                            <h1 class="hero-title">Premium<br>Electronics</h1>
+                            <p class="hero-description">Experience cutting-edge technology with our premium electronics collection</p>
+                            <div class="hero-actions">
+                                <button class="btn btn-primary">Shop Tech</button>
+                                <button class="btn btn-outline">Learn More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-slide" data-bg="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1920&h=1080&fit=crop&q=80">
+                <div class="hero-content">
+                    <div class="container">
+                        <div class="hero-text">
+                            <span class="hero-badge">Home & Living</span>
+                            <h1 class="hero-title">Transform<br>Your Space</h1>
+                            <p class="hero-description">Create your perfect sanctuary with our premium home collection</p>
+                            <div class="hero-actions">
+                                <button class="btn btn-primary">Shop Home</button>
+                                <button class="btn btn-outline">Get Inspired</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-navigation">
+            <button class="hero-nav prev" id="heroPrev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="hero-nav next" id="heroNext">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <div class="hero-indicators">
+            <span class="indicator active" data-slide="0"></span>
+            <span class="indicator" data-slide="1"></span>
+            <span class="indicator" data-slide="2"></span>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Shop by Category</h2>
+                <p class="section-subtitle">Discover our curated collections</p>
+            </div>
+            
+            <div class="categories-grid">
+                <div class="category-card large">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop&q=80" alt="Fashion">
+                    </div>
+                    <div class="category-content">
+                        <h3>Fashion</h3>
+                        <p>Premium clothing and accessories</p>
+                        <span class="category-count">250+ Products</span>
+                        <button class="category-btn">Explore Fashion</button>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop&q=80" alt="Electronics">
+                    </div>
+                    <div class="category-content">
+                        <h3>Electronics</h3>
+                        <p>Latest tech gadgets</p>
+                        <span class="category-count">180+ Products</span>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300&h=300&fit=crop&q=80" alt="Beauty">
+                    </div>
+                    <div class="category-content">
+                        <h3>Beauty</h3>
+                        <p>Skincare & cosmetics</p>
+                        <span class="category-count">120+ Products</span>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=300&fit=crop&q=80" alt="Home">
+                    </div>
+                    <div class="category-content">
+                        <h3>Home & Living</h3>
+                        <p>Furniture & decor</p>
+                        <span class="category-count">200+ Products</span>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&h=300&fit=crop&q=80" alt="Sports">
+                    </div>
+                    <div class="category-content">
+                        <h3>Sports</h3>
+                        <p>Athletic wear & gear</p>
+                        <span class="category-count">150+ Products</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Products</h2>
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all">All</button>
+                    <button class="filter-tab" data-filter="fashion">Fashion</button>
+                    <button class="filter-tab" data-filter="electronics">Electronics</button>
+                    <button class="filter-tab" data-filter="beauty">Beauty</button>
+                    <button class="filter-tab" data-filter="home">Home</button>
+                </div>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here -->
+            </div>
+
+            <div class="load-more-container">
+                <button class="btn btn-outline" id="loadMoreBtn">Load More Products</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers -->
+    <section class="offers">
+        <div class="container">
+            <div class="offers-grid">
+                <div class="offer-card primary">
+                    <div class="offer-content">
+                        <span class="offer-badge">Limited Time</span>
+                        <h3>Summer Sale</h3>
+                        <p>Up to 70% off on selected items</p>
+                        <button class="btn btn-white">Shop Sale</button>
+                    </div>
+                    <div class="offer-image">
+                        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=500&h=300&fit=crop&q=80" alt="Summer Sale">
+                    </div>
+                </div>
+                
+                <div class="offer-card secondary">
+                    <div class="offer-content">
+                        <span class="offer-badge">New Arrival</span>
+                        <h3>Tech Collection</h3>
+                        <p>Latest gadgets and electronics</p>
+                        <button class="btn btn-primary">Explore Tech</button>
+                    </div>
+                    <div class="offer-image">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&h=300&fit=crop&q=80" alt="Tech Collection">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2>Stay in the Loop</h2>
+                    <p>Subscribe to our newsletter and be the first to know about new collections, exclusive offers, and style tips.</p>
+                </div>
+
+                <!-- This our form data it would saved in database -->
+
+                
+                <form class="newsletter-form" id="newsletterForm">
+                    <div class="form-group">
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </div>
+                    <p class="newsletter-privacy">We respect your privacy. Unsubscribe at any time.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-logo">LUXE</h3>
+                    <p>Premium e-commerce experience with curated collections of luxury products.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#">Fashion</a></li>
+                        <li><a href="#">Electronics</a></li>
+                        <li><a href="#">Beauty</a></li>
+                        <li><a href="#">Home & Living</a></li>
+                        <li><a href="#">Sports</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Track Your Order</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Luxury Street, Fashion District, Lokhandwala ,India</p>
+                        <p><i class="fas fa-phone"></i> +91 (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> hello@luxe.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 LUXE BY JAGDISH SHINDE. All rights reserved.</p>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-amex"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="cart-close" id="cartClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-content" id="cartContent">
+            <div class="empty-cart">
+                <i class="fas fa-shopping-bag"></i>
+                <h4>Your cart is empty</h4>
+                <p>Add some products to get started</p>
+            </div>
+        </div>
+        <div class="cart-footer" id="cartFooter">
+            <div class="cart-total">
+                <div class="total-row">
+                    <span>Subtotal:</span>
+                    <span id="cartSubtotal">$0.00</span>
+                </div>
+                <div class="total-row">
+                    <span>Shipping:</span>
+                    <span>Free</span>
+                </div>
+                <div class="total-row total">
+                    <span>Total:</span>
+                    <span id="cartTotal">$0.00</span>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-full">Proceed to Checkout</button>
+            <button class="btn btn-outline btn-full">Continue Shopping</button>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- Product Quick View Modal -->
+    <div class="product-modal" id="productModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body" id="modalBody">
+                <!-- Product details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
