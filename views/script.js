@@ -671,12 +671,34 @@ function closeProductModal() {
 
 // Newsletter
 function initializeNewsletter() {
-  newsletterForm.addEventListener("submit", (e) => {
+  newsletterForm.addEventListener("submit", async (e) => {
     e.preventDefault()
-    const email = e.target.querySelector('input[type="email"]').value
-    if (email) {
-      showToast("Thank you for subscribing!", "success")
-      e.target.reset()
+    const emailInput = e.target.querySelector('input[type="email"]')
+    const email = emailInput.value
+
+    if (!email) {
+      showToast("Please enter your email address.", "warning")
+      return
+    }
+
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      })
+
+      const data = await res.json()
+
+      if (res.ok) {
+        showToast(data.message || "Thank you for subscribing!", "success")
+        e.target.reset()
+      } else {
+        showToast(data.message || "Subscription failed.", "error")
+      }
+    } catch (err) {
+      showToast("Something went wrong. Please try again.", "error")
+      console.error(err)
     }
   })
 }
@@ -786,23 +808,3 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 
 console.log("🚀 LUXE E-commerce loaded successfully!")
 
-
-
-document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const email = this.querySelector('input[type="email"]').value;
-
-    try {
-      const res = await fetch('http://localhost:3000/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email })
-      });
-      const data = await res.json();
-      alert(data.message);
-      if (res.ok) this.reset();
-    } catch (err) {
-      alert('Something went wrong.');
-      console.error(err);
-    }
-  });
